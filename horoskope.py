@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 list_of_signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo',
                  'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
-list_of_signs = [i.lower() for i in list_of_signs ]
+list_of_signs = [i.lower() for i in list_of_signs]
 i = 0
 
 list_with_horoscope = []
@@ -17,5 +17,4 @@ while i <= 11:
     i += 1
     list_with_horoscope.append(a.text)
 
-
-
+print(list_with_horoscope)

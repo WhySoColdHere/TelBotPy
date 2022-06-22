@@ -4,12 +4,6 @@ mass_commands = [['start'],
                  ['exchangeRate'],
                  ['cuteTyan']]
 
-content_type_com = [['text'],
-                    ['photo'],
-                    ['audio'],
-                    ['video'],
-                    ['voice']]
-
 txt_commands = '''
 /start,
 /help,

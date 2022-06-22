@@ -2,7 +2,7 @@ from exchange_rate import list_of_money
 from horoskope import list_with_horoscope
 from numpy import array
 from telebot import types
-from token_bot import TOKEN
+from hiden_vals import TOKEN
 import telebot as tb
 from commands_list import *
 from without_bot_funcs import *
@@ -26,7 +26,7 @@ def help_com(mess):
 
 
 @bot.message_handler(commands=mass_commands[4])
-def cute_tyan(mess):
+def cute_tyan_com(mess):
     try:
         bot.send_photo(mess.chat.id, random_photo())
     except:
@@ -34,7 +34,7 @@ def cute_tyan(mess):
 
 
 @bot.message_handler(commands=mass_commands[2])
-def horoscope(mess):
+def horoscope_com(mess):
     bl_hor = array([types.InlineKeyboardButton('Aries', callback_data=id_btn_mass[0]),
                     types.InlineKeyboardButton('Taurus', callback_data=id_btn_mass[1]),
                     types.InlineKeyboardButton('Gemini', callback_data=id_btn_mass[2]),
@@ -54,18 +54,18 @@ def horoscope(mess):
 
 
 @bot.message_handler(commands=mass_commands[3])
-def horoscope(mess):
-    bl_money = [types.InlineKeyboardButton(list_of_money[0][0], callback_data=id_btn_mass[12]),
-                types.InlineKeyboardButton(list_of_money[1][0], callback_data=id_btn_mass[13]),
-                types.InlineKeyboardButton(list_of_money[2][0], callback_data=id_btn_mass[14]),
-                types.InlineKeyboardButton(list_of_money[3][0], callback_data=id_btn_mass[15])]
+def money_func_com(mess):
+    bl_money = array([types.InlineKeyboardButton(list_of_money[0][0], callback_data=id_btn_mass[12]),
+                      types.InlineKeyboardButton(list_of_money[1][0], callback_data=id_btn_mass[13]),
+                      types.InlineKeyboardButton(list_of_money[2][0], callback_data=id_btn_mass[14]),
+                      types.InlineKeyboardButton(list_of_money[3][0], callback_data=id_btn_mass[15])])
     murkup = types.InlineKeyboardMarkup(row_width=2)
     murkup.add(bl_money[0], bl_money[1], bl_money[2], bl_money[3])
     bot.send_message(mess.chat.id, 'Choose MONEY MODE', reply_markup=murkup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
-def callback_hor(call):
+def callback_func(call):
     if call.message:
         but_hor_func(call.data, id_btn_mass, call, list_with_horoscope, return_mess, list_of_money)
 
