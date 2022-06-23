@@ -17,4 +17,3 @@ while i <= 11:
     i += 1
     list_with_horoscope.append(a.text)
 
-print(list_with_horoscope)
