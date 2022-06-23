@@ -2,7 +2,6 @@ from exchange_rate import list_of_money
 from horoskope import list_with_horoscope
 from numpy import array
 from telebot import types
-from hiden_vals import TOKEN
 import telebot as tb
 from commands_list import *
 from without_bot_funcs import *
