@@ -7,7 +7,7 @@ from commands_list import *
 from without_bot_funcs import *
 
 
-bot = tb.TeleBot(TOKEN)
+bot = tb.TeleBot('5585081907:AAFpabAiJc2ogijgwd1Cta2A6sRKPL9H61Y')
 
 
 def return_mess(mess, x):
