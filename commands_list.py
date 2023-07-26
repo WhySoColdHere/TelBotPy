@@ -2,13 +2,15 @@ mass_commands = [['start'],
                  ['help'],
                  ['horoscope'],
                  ['exchangeRate'],
-                 ['cuteTyan']]
+                 ['cuteTyan'],
+                 ['chart']]
 
 txt_commands = '''
 /start,
 /help,
 /horoscope,
 /exchangeRate,
-/cuteTyan
+/cuteTyan,
+/chart
 '''
 

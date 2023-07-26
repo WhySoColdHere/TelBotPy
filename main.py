@@ -5,9 +5,11 @@ from telebot import types
 import telebot as tb
 from commands_list import *
 from without_bot_funcs import *
+from charts_fuctional import return_chart
+from os import remove
+from token_file import token
 
-
-bot = tb.TeleBot('5585081907:AAFpabAiJc2ogijgwd1Cta2A6sRKPL9H61Y')
+bot = tb.TeleBot(token)
 
 
 def return_mess(mess, x):
@@ -62,6 +64,20 @@ def money_func_com(mess):
     murkup = types.InlineKeyboardMarkup(row_width=2)
     murkup.add(bl_money[0], bl_money[1], bl_money[2], bl_money[3])
     bot.send_message(mess.chat.id, 'Choose MONEY MODE', reply_markup=murkup)
+
+
+@bot.message_handler(commands=mass_commands[5])
+def chart_com(mess):
+    bot.send_message(mess.chat.id, "Enter list of numbs like: '1 2 3 4...'")
+    bot.register_next_step_handler(mess, get_chart)
+
+
+def get_chart(mess):
+    bot.send_photo(mess.chat.id, return_chart(mess.text))
+    try:
+        remove("ffile.png")
+    except WindowsError:
+        print("File is already deleted")
 
 
 @bot.callback_query_handler(func=lambda call: True)
